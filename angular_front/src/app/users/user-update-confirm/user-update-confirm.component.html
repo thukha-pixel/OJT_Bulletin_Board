@@ -1,0 +1,42 @@
+<h1>Create Post Confirmation</h1>
+
+<table class="confrimTable">
+	<tr>
+		<td>Name</td>
+		<td>{{userDetail.data.Name}}</td>
+	</tr>
+
+	<tr>
+		<td>Email Address</td>
+		<td>{{userDetail.data.email}}</td>
+	</tr>
+
+	<tr>
+		<td>Type</td>
+		<td>{{userDetail.data.type == 0? "Admin":"User"}}</td>
+	</tr>
+
+	<tr>
+		<td>Phone</td>
+		<td>{{userDetail.data.phone}}</td>
+	</tr>
+
+	<tr>
+		<td>Date of Birth</td>
+		<td>{{userDetail.data.dob | date: 'dd/MM/yyyy'}}</td>
+	</tr>
+
+	<tr>
+		<td>Address</td>
+		<td>{{userDetail.data.address}}</td>
+	</tr>
+	<tr>
+		<td>Profile</td>
+		<td> <img width="200" height="200" style="border-radius:15px;" src={{url}}></td>
+	</tr>
+
+	<tr>
+		<td><button mat-raised-button color="accent" (click)="CreateUser()">Create</button></td>
+		<td><button mat-raised-button color="warn" (click)="ClearConfirm()">Cancel</button></td>
+	</tr>
+</table>

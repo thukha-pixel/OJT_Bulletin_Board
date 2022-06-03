@@ -1,0 +1,37 @@
+<h1>Create Post Confirmation</h1>
+
+<table class="confrimTable">
+    <tr>
+        <td>Name</td>
+        <td>{{userDetail?.username}}</td>
+    </tr>
+
+    <tr>
+        <td>Email Address</td>
+        <td>{{userDetail?.email}}</td>
+    </tr>
+    <tr>
+        <td>Type</td>
+        <td>{{userDetail?.type == 0? "Admin":"User"}}</td>
+    </tr>
+
+    <tr>
+        <td>Phone</td>
+        <td>{{userDetail?.phone}}</td>
+    </tr>
+
+    <tr>
+        <td>Date of Birth</td>
+        <td>{{userDetail?.dob | date: 'dd/MM/yyyy'}}</td>
+    </tr>
+
+    <tr>
+        <td>Address</td>
+        <td>{{userDetail?.address}}</td>
+    </tr>
+    <tr>
+        <td>
+            <a (click)="onUpdate(userId)" style="cursor: pointer;color:aquamarine"> Edit Profile</a>
+        </td>
+    </tr>
+</table>

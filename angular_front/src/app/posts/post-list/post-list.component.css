@@ -1,0 +1,18 @@
+table{
+  width: 80%;
+  margin:0 auto;
+}
+
+mat-form-field{
+  margin-left: 150px;
+  margin-top: 50px;
+}
+
+mat-paginator{
+  width: 80%;
+ margin:0 auto;
+}
+
+.searchBtn{
+  margin:0 10px;
+}

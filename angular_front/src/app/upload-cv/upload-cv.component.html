@@ -1,0 +1,19 @@
+
+
+<h1>Upload your CSV</h1>
+<form class="example-form" #ngForm="ngForm">
+    <mat-label>Upload file</mat-label>
+    <input type="file" name="file" #csvReader (change)="uploadListener($event)"  required >
+
+  
+  <!--<div *ngIf="Title?.invalid && Title?.touched" style="color: red;">
+    <small *ngIf="Title?.errors?.['required']">Post title is required</small>
+    <small *ngIf="Title?.errors?.['maxLength']">Post title must not be over 255 words</small>
+  </div>-->
+
+  
+
+  
+  <button mat-raised-button color="warn" style="margin-right: 10px;" (click)="onUpload()">Upload</button>
+</form>
+

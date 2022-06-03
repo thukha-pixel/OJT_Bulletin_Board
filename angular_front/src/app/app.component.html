@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">Bulletin board
+
+	<!-- left nav buttons -->
+	<div class="left-nav-link">
+		<a href="" mat-button *ngIf="userId" routerLink="users">Users</a>
+		<a href="" routerLink="user/profile" mat-button>User</a>
+		<a href="" mat-button *ngIf="userId">Post</a>
+	</div>
+
+	<!-- right nav buttons -->
+	<div class="space"></div>
+	<div class="right-nav-link">
+		<a href="" mat-button *ngIf="userId">{{ userName }}</a>
+		<a mat-raised-button color="accent" *ngIf="userId" (click)="onLogout()">Logout</a>
+	</div>
+
+</mat-toolbar>
+
+<div class="main">
+	<router-outlet></router-outlet>
+</div>

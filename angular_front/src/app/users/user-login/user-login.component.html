@@ -1,0 +1,26 @@
+<h1 class="mat-display-3">Login Form </h1>
+<form class="example-form" [formGroup]="loginForm" #ngForm="ngForm">
+
+	<mat-form-field class="example-full-width" appearance="fill">
+		<mat-label>Email Address</mat-label>
+		<input matInput placeholder="Email" formControlName="email" required="">
+	</mat-form-field>
+	<div *ngIf="email?.invalid && email?.touched" style="color: red;">
+		<small *ngIf="email?.errors?.['required']">Email is required</small>
+		<small *ngIf="email?.errors?.['pattern']">Email is invalid</small>
+	</div>
+
+
+	<mat-form-field class="example-full-width" appearance="fill">
+		<mat-label>Password</mat-label>
+		<input matInput placeholder="Password" type="password" formControlName="password"
+			[type]="hide ? 'password' : 'text'">
+		<mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+	</mat-form-field>
+	<div *ngIf="password?.invalid && password?.touched" style="color: red;">
+		<small *ngIf="password?.errors?.['required']">Password is required</small>
+
+	</div>
+
+	<button class="mat-raised-button" color="primary" (click)="onSubmit()">Login</button>
+</form>

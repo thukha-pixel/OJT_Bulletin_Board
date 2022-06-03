@@ -1,0 +1,35 @@
+<div *ngIf="error">
+  {{ error }}
+</div>
+
+<h1>Post Create</h1>
+<form class="example-form" [formGroup]="postForm" #ngForm="ngForm">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Post Title</mat-label>
+    <input matInput placeholder="title" formControlName="PostTitle" required="">
+
+  </mat-form-field>
+  <div *ngIf="Title?.invalid && Title?.touched" style="color: red;">
+    <small *ngIf="Title?.errors?.['required']">Post title is required</small>
+    <small *ngIf="Title?.errors?.['maxLength']">Post title must not be over 255 words</small>
+  </div>
+
+  
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea matInput rows="8" cols="18" #des formControlName="PostDescription"></textarea>
+  </mat-form-field>
+  <div *ngIf="Description?.invalid && Description?.touched" style="color: red;">
+    <small *ngIf="Description?.errors?.['required']">Description is required</small>
+  </div>
+
+  
+<div class="example-full-width" appearance="fill" *ngIf="postId">
+  <span>Status</span>  <mat-slide-toggle [checked]="this.status" (change)="onChange($event)">
+    </mat-slide-toggle>
+  </div>
+  
+  <button mat-raised-button color="warn" style="margin-right: 10px;">Reset</button>
+  <button mat-raised-button color="primary" *ngIf="!postId"  [disabled]="postForm.invalid" (click)="Add()">Register</button>
+  <button mat-raised-button color="primary" *ngIf="postId" [disabled]="postForm.invalid" (click)="Edit()">Edit</button>
+</form>
