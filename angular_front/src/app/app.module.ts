@@ -19,34 +19,36 @@ import { UserUpdateConfirmComponent } from './users/user-update-confirm/user-upd
 import { UserLoginComponent } from './users/user-login/user-login.component';
 import { AuthGuard } from './auth.guard';
 import { UserProfileComponent } from './users/user-profile/user-profile.component';
+import { UserChangePasswordComponent } from './users/user-change-password/user-change-password.component';
 @NgModule({
-	declarations: [
-		AppComponent,
-		PostCreateComponent,
-		PostConfirmComponent,
-		PostListComponent,
-		UploadCVComponent,
-		UserCreateComponent,
-		UserConfirmComponent,
-		UsersListComponent,
-		UserUpdateComponent,
-		UserUpdateConfirmComponent,
-		UserLoginComponent,
-  UserProfileComponent
-	],
-	imports: [
-		BrowserModule,
-		AppRoutingModule,
-		BrowserAnimationsModule,
-		MaterialExampleModule,
-		ReactiveFormsModule,
-		HttpClientModule,
-		FormsModule,
+    declarations: [
+        AppComponent,
+        PostCreateComponent,
+        PostConfirmComponent,
+        PostListComponent,
+        UploadCVComponent,
+        UserCreateComponent,
+        UserConfirmComponent,
+        UsersListComponent,
+        UserUpdateComponent,
+        UserUpdateConfirmComponent,
+        UserLoginComponent,
+        UserProfileComponent,
+        UserChangePasswordComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MaterialExampleModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        FormsModule,
 
-	],
-	providers: [
-		AuthGuard
-	],
-	bootstrap: [AppComponent]
+    ],
+    providers: [
+        AuthGuard
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

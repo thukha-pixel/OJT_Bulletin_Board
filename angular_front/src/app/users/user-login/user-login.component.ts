@@ -4,40 +4,41 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-	selector: 'app-user-login',
-	templateUrl: './user-login.component.html',
-	styleUrls: ['./user-login.component.css']
+    selector: 'app-user-login',
+    templateUrl: './user-login.component.html',
+    styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent implements OnInit {
-	hide = true;
-	constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
+    hide = true;
+    constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
 
-	ngOnInit(): void {
-	}
-	loginForm = this.fb.group({
-		email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
-		password: ['', Validators.required]
-	});
+    ngOnInit(): void {
+    }
+    loginForm = this.fb.group({
+        email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
+        password: ['', Validators.required]
+    });
 
-	get email() {
-		return this.loginForm?.get('email');
-	}
-	get password() {
-		return this.loginForm?.get('password');
-	}
+    get email() {
+        return this.loginForm?.get('email');
+    }
+    get password() {
+        return this.loginForm?.get('password');
+    }
 
-	async onSubmit() {
-		await this.authService.loginUser({
-			identifier: this.email?.value,
-			password: this.password?.value
-		}).subscribe((data: any) => {
+    async onSubmit() {
+        await this.authService.loginUser({
+            identifier: this.email?.value,
+            password: this.password?.value
+        }).subscribe((data: any) => {
 
-			localStorage.setItem('token', data.jwt);
-			localStorage.setItem('user',JSON.stringify(data.user));
-			localStorage.setItem('userId',data.user.id);
-			localStorage.setItem('userName',data.user.username);
+            localStorage.setItem('token', data.jwt);
+            localStorage.setItem('user', JSON.stringify(data.user));
+            localStorage.setItem('userId', data.user.id);
+            localStorage.setItem('userName', data.user.username);
+            localStorage.setItem("email", data.user.email);
 
-			this.router.navigate(['posts']);
-		})
-	}
+            this.router.navigate(['posts']);
+        })
+    }
 }

@@ -16,7 +16,6 @@ export class UserProfileComponent implements OnInit {
 		this.userId = localStorage.getItem("userId");
 		this.userService.getSingleUser(this.userId).subscribe((data: any) => {
 			this.userDetail = data;
-			console.log(this.userDetail);
 		})
 	}
 
@@ -25,6 +24,6 @@ export class UserProfileComponent implements OnInit {
 	}
 
 	onUpdate(id: any) {
-		this.router.navigate(['user/update'], { queryParams: { userId: id } });
+		this.router.navigate(['user/update'], { queryParams: { userId: id, canChange: true } });
 	}
 }

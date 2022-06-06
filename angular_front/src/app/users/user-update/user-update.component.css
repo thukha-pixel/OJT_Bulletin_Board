@@ -1,44 +1,47 @@
 h1 {
-  text-align: center;
+    text-align: center;
 }
 
 .example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
+    min-width: 150px;
+    max-width: 600px;
+    width: 100%;
 
-  margin: auto;
-  margin-bottom: 80px;
+    margin: auto;
+    margin-bottom: 80px;
+    background: teal;
+    padding: 20px;
+    border-radius: 5px;
 }
 
 .example-full-width {
-  width: 100%;
+    width: 100%;
 }
 
 .example-margin {
-  margin-right: 20px;
+    margin-right: 20px;
 }
 
 .example-section {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .hobbyLbl {
-  color: gray;
-  font-size: 1.2em;
+    color: gray;
+    font-size: 1.2em;
 
 }
 
 .mat-radio-button~.mat-radio-button {
-  margin-left: 16px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+    margin-left: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 mat-raised-button {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 .invalid {
-  color: #f44336;
+    color: #f44336;
 }

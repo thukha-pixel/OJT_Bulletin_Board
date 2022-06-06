@@ -1,74 +1,79 @@
 <h1 class="mat-display-3">Update User </h1>
 
 <form class="example-form" [formGroup]="userForm" #ngForm="ngForm">
-	<mat-form-field class="example-full-width" appearance="fill">
-		<mat-label>Name</mat-label>
-		<input matInput placeholder="Name" formControlName="Name" required="">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" formControlName="Name" required="">
 
-	</mat-form-field>
-	<div *ngIf="name?.invalid && name?.touched" style="color: red;">
-		<small *ngIf="name?.errors?.['required']">Username is required</small>
-	</div>
+    </mat-form-field>
+    <div *ngIf="name?.invalid && name?.touched" style="color: red;">
+        <small *ngIf="name?.errors?.['required']">Username is required</small>
+    </div>
 
-	<mat-form-field class="example-full-width" appearance="fill">
-		<mat-label>Email Address</mat-label>
-		<input matInput placeholder="Email" formControlName="email" required="">
-	</mat-form-field>
-	<div *ngIf="email?.invalid && email?.touched" style="color: red;">
-		<small *ngIf="email?.errors?.['required']">Email is required</small>
-		<small *ngIf="email?.errors?.['pattern']">Email is invalid</small>
-	</div>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email Address</mat-label>
+        <input matInput placeholder="Email" formControlName="email" required="">
+    </mat-form-field>
+    <div *ngIf="email?.invalid && email?.touched" style="color: red;">
+        <small *ngIf="email?.errors?.['required']">Email is required</small>
+        <small *ngIf="email?.errors?.['pattern']">Email is invalid</small>
+    </div>
 
 
 
-	<h4>Type</h4>
-	<mat-form-field appearance="fill">
-		<mat-select formControlName="type" required>
+    <h4>Type</h4>
+    <mat-form-field appearance="fill">
+        <mat-select formControlName="type" required>
 
-			<mat-option [value]="0">
-				Admin
-			</mat-option>
-			<mat-option [value]="1">
-				User
-			</mat-option>
-		</mat-select>
-	</mat-form-field>
-	<div *ngIf="type?.invalid && type?.touched" style="color: red;">
-		<small *ngIf="type?.errors?.['required']">Type is required</small>
-	</div>
-	<br>
+            <mat-option [value]="0">
+                Admin
+            </mat-option>
+            <mat-option [value]="1">
+                User
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div *ngIf="type?.invalid && type?.touched" style="color: red;">
+        <small *ngIf="type?.errors?.['required']">Type is required</small>
+    </div>
+    <br>
 
-	<mat-form-field class="example-full-width" appearance="fill">
-		<mat-label>Phone</mat-label>
-		<input matInput placeholder="Phone" formControlName="phone" required>
-	</mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Phone</mat-label>
+        <input matInput placeholder="Phone" formControlName="phone" required>
+    </mat-form-field>
 
-	<mat-form-field appearance="fill">
-		<mat-label>Choose a date</mat-label>
-		<input matInput [matDatepicker]="picker" formControlName="dob" required>
-		<mat-hint>MM/DD/YYYY</mat-hint>
-		<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-		<mat-datepicker #picker></mat-datepicker>
-	</mat-form-field>
-	<div *ngIf="dob?.invalid && dob?.touched" style="color: red;">
-		<small *ngIf="dob?.errors?.['required']">Date of Birth is required</small>
-	</div>
-	<br>
+    <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dob" required>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <div *ngIf="dob?.invalid && dob?.touched" style="color: red;">
+        <small *ngIf="dob?.errors?.['required']">Date of Birth is required</small>
+    </div>
+    <br>
 
-	<mat-form-field class="example-full-width" appearance="fill">
-		<mat-label>Address</mat-label>
-		<textarea matInput rows="8" cols="18" formControlName="address"></textarea>
-	</mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Address</mat-label>
+        <textarea matInput rows="8" cols="18" formControlName="address"></textarea>
+    </mat-form-field>
 
-	<h4>Profile</h4>
-	<button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
-	<input hidden #fileInput type="file" id="file" (change)="onSelectFile($event)"><br><br>
-	<h3>Current Profile</h3>
-	<img class="image-upload" src="http://localhost:1338{{url}}" width="200" height="200" style="border-radius:15px;">
-	<h3>New Profile</h3>
-	<img class="image-upload" src="{{imgUrl}}" width="200" height="200" style="border-radius:15px;">
-	<br><br>
+    <a (click)="changePassword()" style="cursor: pointer;color:blue;text-decoration: underline;"
+        *ngIf="canChange === 'true' ? true : false ;">Change Password</a>
+    <br><br>
 
-	<button mat-raised-button color="warn" style="margin-right: 10px;">Clear</button>
-	<button mat-raised-button color="primary" (click)="onConfirm()">Confirm</button>
+
+    <h4>Profile</h4>
+    <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+    <input hidden #fileInput type="file" id="file" (change)="onSelectFile($event)"><br><br>
+    <h3>Current Profile</h3>
+    <img class="image-upload" src="http://localhost:1338{{url}}" width="200" height="200" style="border-radius:15px;">
+    <h3>New Profile</h3>
+    <img class="image-upload" src="{{imgUrl}}" width="200" height="200" style="border-radius:15px;">
+    <br><br>
+
+    <button mat-raised-button color="warn" style="margin-right: 10px;">Clear</button>
+    <button mat-raised-button color="primary" (click)="onConfirm()">Confirm</button>
 </form>

@@ -1,18 +1,18 @@
 <h1>Create Post Confirmation</h1>
 
 <table class="confrimTable">
-  <tr>
-    <td>Title</td>
-    <td>{{postDetail.data.PostTitle}}</td>
-  </tr>
+    <tr>
+        <td>Title</td>
+        <td>{{postDetail.data.PostTitle}}</td>
+    </tr>
 
-  <tr>
-    <td>Description</td>
-    <td>{{postDetail.data.PostDescription}}</td>
-  </tr>
+    <tr>
+        <td>Description</td>
+        <td>{{postDetail.data.PostDescription}}</td>
+    </tr>
 
-  <tr>
-    <td><button mat-raised-button color="accent" (click)="CreatePost()">Create</button></td>
-    <td><button mat-raised-button color="warn" (click)="CancelPost()" >Cancel</button></td>
-  </tr>
+    <tr>
+        <td><button mat-raised-button color="accent" (click)="CreatePost()">Create</button></td>
+        <td><button mat-raised-button color="warn" (click)="CancelPost()">Cancel</button></td>
+    </tr>
 </table>

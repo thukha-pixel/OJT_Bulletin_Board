@@ -1,17 +1,17 @@
-table{
-  width: 80%;
-  margin:0 auto;
+table {
+    width: 80%;
+    margin: 0 auto;
 }
 
-mat-form-field{
-  margin:10px 40px;
+mat-form-field {
+    margin: 10px 40px;
 }
 
-mat-paginator{
-  width: 80%;
- margin:0 auto;
+mat-paginator {
+    width: 80%;
+    margin: 0 auto;
 }
 
-.searchBtn{
-  margin:0 10px;
+.searchBtn {
+    margin: 0 10px;
 }

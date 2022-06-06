@@ -1,16 +1,16 @@
-table tr{
- padding:45px;
+table tr {
+    padding: 45px;
 }
 
-table tr td{
-  padding:20px;
+table tr td {
+    padding: 20px;
 }
 
-h1{
-  text-align: center;
-  }
-  .confrimTable{
-      width: 30%;
-      margin: 0 auto;
-    }
+h1 {
+    text-align: center;
+}
 
+.confrimTable {
+    width: 30%;
+    margin: 0 auto;
+}
