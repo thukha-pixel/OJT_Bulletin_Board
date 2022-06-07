@@ -37,6 +37,7 @@ export class UserLoginComponent implements OnInit {
             localStorage.setItem('userId', data.user.id);
             localStorage.setItem('userName', data.user.username);
             localStorage.setItem("email", data.user.email);
+            localStorage.setItem("type", data.user.type);
 
             this.router.navigate(['posts']);
         })

@@ -3,7 +3,9 @@
         <input matInput type="text" [(ngModel)]="search" name="search" placeholder="Filter" />
     </mat-form-field>
     <button mat-raised-button color="accent" (click)="applyFilter()" class="searchBtn">Search</button>
-    <button mat-raised-button color="accent" (click)="downloadCV()">Download</button>
+    <button mat-raised-button color="accent" (click)="onUpload()" class="btnGroup">Upload</button>
+    <button mat-raised-button color="accent" (click)="onAdd()" class="btnGroup">Add</button>
+    <button mat-raised-button color="accent" (click)="downloadCV()" class="btnGroup">Download</button>
 </div>
 
 

@@ -82,6 +82,17 @@ export class PostService {
             .pipe(retry(1), catchError(this.handleError));
     }
 
+    getTruePost(): Observable<Post> {
+        return this.http
+            .get<Post>(this.apiURL + '/posts?populate=*&filters[PostStatus]=true', this.httpOptions)
+            .pipe(retry(1), catchError(this.handleError));
+    }
+
+    getPostById(id: any): Observable<Post> {
+        return this.http
+            .get<Post>(this.apiURL + '/posts?populate=*&filters[users_permissions_user]=' + id, this.httpOptions)
+            .pipe(retry(1), catchError(this.handleError));
+    }
 
     constructor(private http: HttpClient) { }
 }

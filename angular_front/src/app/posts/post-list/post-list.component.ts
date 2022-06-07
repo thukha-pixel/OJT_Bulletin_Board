@@ -26,19 +26,50 @@ export class PostListComponent implements OnInit {
 
     // Get post list
     async loadPosts() {
-        return await this.postService.getAllPosts().subscribe((data: any) => {
-            this.posts = data.data
-            this.dataSource = new MatTableDataSource(this.posts);
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sortingDataAccessor = (item: any, property: any) => {
-                switch (property) {
-                    case 'PostTitle': return item.attributes.PostTitle;
-                    case 'PostDescription': return item.attributes.PostDescription;
-                    default: return item[property];
-                }
-            };
-            this.dataSource.sort = this.sort;
-        })
+        if (localStorage.getItem("type") == "Admin") {
+            return await this.postService.getAllPosts().subscribe((data: any) => {
+                this.posts = data.data
+                this.dataSource = new MatTableDataSource(this.posts);
+                this.dataSource.paginator = this.paginator;
+                this.dataSource.sortingDataAccessor = (item: any, property: any) => {
+                    switch (property) {
+                        case 'PostTitle': return item.attributes.PostTitle;
+                        case 'PostDescription': return item.attributes.PostDescription;
+                        default: return item[property];
+                    }
+                };
+                this.dataSource.sort = this.sort;
+            })
+        } else {
+            return await this.postService.getPostById(localStorage.getItem("userId")).subscribe((data: any) => {
+                let temp_post = data.data;
+                this.postService.getTruePost().subscribe((data: any) => {
+                    let id = localStorage.getItem("userId");
+                    let final_post = data.data.filter((post: any) => Number(id) !== post.attributes.users_permissions_user.data.id);
+                    temp_post = [...temp_post, ...final_post];
+                    this.dataSource = new MatTableDataSource(temp_post);
+                    this.dataSource.paginator = this.paginator;
+                    this.dataSource.sortingDataAccessor = (item: any, property: any) => {
+                        switch (property) {
+                            case 'PostTitle': return item.attributes.PostTitle;
+                            case 'PostDescription': return item.attributes.PostDescription;
+                            case 'createdAt': return item.attributes.createdAt;
+                            case 'users_permissions_user': return item.attributes.users_permissions_user.data.attributes.username;
+                            default: return item[property];
+                        }
+                    };
+                    this.dataSource.sort = this.sort;
+                })
+            });
+        }
+    }
+
+    onUpload() {
+        this.router.navigate(['post/excel']);
+    }
+
+    onAdd() {
+        this.router.navigate(['post/create']);
     }
 
     onUpdate(id: any) {

@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "passwords",
+  "info": {
+    "singularName": "password",
+    "pluralName": "passwords",
+    "displayName": "Password"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}
